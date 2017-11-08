@@ -1,0 +1,13 @@
+{% if recentArticles %}
+	<ul>
+	{% for article in recentArticles %}
+		<div>
+			<a href="{% url 'expose:article' article.id %}">{{ article.article_title }}</a>
+			<div>Media</div>
+		</div>
+	{% endfor %}
+{% else %}
+	<h4>No articles have been written yet!</h4>
+{% endif %}
+
+<a href="{% url 'expose:archive' %}">Archive</a>

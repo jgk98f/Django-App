@@ -1,0 +1,16 @@
+<form action="{% url 'expose:archive_year' %}" method="get">
+	<span>
+		<h4>Get all post for a year:</h4>
+		<input name="year" placeholder="yyyy"/>
+		<button type="submit">Submit</button>
+	</span>
+</form>
+
+<form action="{% url 'expose:archive_month' %}" method="get">
+	<span>
+		<h4>Get all post for a specific month:</h4>
+		<input name="year" placeholder="yyyy">Year:</input>
+		<input name="month" placeholder="mm">Month:</input>
+		<button type="submit">Submit</button>
+	</span>
+</form>

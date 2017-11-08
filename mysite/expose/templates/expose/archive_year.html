@@ -1,0 +1,14 @@
+<h2>Welcome to archive by year!</h2>
+{% if articleList %}
+	<ul>
+	{% for article in articleList %}
+		<div>
+			<a href="{% url 'expose:article' article.id %}">{{ article.article_title }}</a>
+			<p>{{article.article_date}}</p>
+			<div>Media</div>
+		</div>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No articles are present in the archive for this year!</p>
+{% endif %}

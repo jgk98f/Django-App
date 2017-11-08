@@ -1,0 +1,15 @@
+{% if article %}
+	<div>
+		<h1>{{article.article_title}}</h1>
+		<div>
+			<p>{{article.article_text}}</p>
+		</div>
+		<div>
+			<span>Upvotes: {{article.article_upvote}}</span>
+			<span>Downvotes: {{article.article_downvote}}</span>
+			<div>Date Published: {{article.article_date}}</div>
+		</div>
+	</div>
+{% else %}
+	<p>The article detail was not found</p>
+{% endif %}

@@ -10,15 +10,15 @@ class Article( models.Model ):
 	article_downvote = models.IntegerField(default=0)
 
 	def __str__(self):
-		return self.article_title + " [ " + str(self.article_date) + " ]" 
+		return self.article_title + " [ " + str(self.article_date) + " ]"
 
 	def was_published_recently(self):
 		return self.article_date >= timezone.now() - datetime.timedelta(days = 1)
 
 class Media( models.Model ):
-	article_id = models.ForeignKey( Article, on_delete=models.CASCADE )
-	article_media =  models.BinaryField()
-	article_media_type = models.CharField(max_length=20, default="Undefined")
+	media_id = models.ForeignKey( Article, on_delete=models.CASCADE )
+	media =  models.BinaryField()
+	media_type = models.CharField(max_length=20, default="Undefined")
 
 	def __str__(self):
-		return "Article_id: " + repr(self.article_id) + " Article_Media_Type: " + self.article_media_type
+		return "Media_id: " + repr(self.media_id) + " Media_Type: " + self.media_type
