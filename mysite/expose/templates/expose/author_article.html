@@ -1,0 +1,14 @@
+<form action="{% url 'expose:submit_article' %}" method="post">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% csrf_token %}
+	<div>
+		<input name="title" placeholder="Title">
+	</div>
+	<div>
+		<input name="date" placeholder="YYYY-DD-MM"/>
+	</div>
+		<textarea name="text" placeholder="Your Article Text Here..."></textarea>
+	<div>
+		<button type="submit">Submit</button>
+	</div>
+</form>

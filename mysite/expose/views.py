@@ -36,3 +36,16 @@ def archive_month(request):
 
 	articleList = Article.objects.filter(article_date__year=archive_year, article_date__month=archive_month)
 	return(render(request, 'expose/archive_month.html', {'articleList': articleList,}))
+
+def author_article(request):
+	return(render(request,'expose/author_article.html', {}))
+
+def submit_article(request):
+	date = request.POST['date']
+	title = request.POST['title']
+	text = request.POST['text']
+
+	article = Article(article_title=title, article_date=date, article_text=text, article_upvote=0, article_downvote=0)
+	article.save()
+
+	return HttpResponseRedirect(reverse('expose:HomeView', args=()))

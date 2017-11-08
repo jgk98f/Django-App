@@ -1,13 +1,53 @@
-{% if recentArticles %}
-	<ul>
-	{% for article in recentArticles %}
-		<div>
-			<a href="{% url 'expose:article' article.id %}">{{ article.article_title }}</a>
-			<div>Media</div>
-		</div>
-	{% endfor %}
-{% else %}
-	<h4>No articles have been written yet!</h4>
-{% endif %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<main role="main">
+	{% if recentArticles %}
 
-<a href="{% url 'expose:archive' %}">Archive</a>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	      	<a class="navbar-brand" href="#">Navbar</a>
+	      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+	        	<span class="navbar-toggler-icon"></span>
+	      	</button>
+	      	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+	        	<ul class="navbar-nav mr-auto">
+	         		<li class="nav-item active">
+	            		<a class="nav-link" href="{% url 'expose:HomeView' %}">Home</a>
+	          		</li>
+	          		<li class="nav-item">
+	            		<a class="nav-link" href="{% url 'expose:author_article' %}">Post<span class="sr-only"></span></a>
+	          		</li>
+	          		<li class="nav-item">
+	            		<a class="nav-link" href="{% url 'expose:archive' %}">Archive</a>
+	          		</li>
+	        	</ul>
+	      	</div>
+	    </nav>
+
+		<div class="jumbotron">
+			<div class="container">
+				<h1 class="display-3">Welcome to Anon News!</h1>
+				<p>Created for the people by the people. Please use good penmanship and keep your audience in mind. This is a free thought space. Keep your bias in check and think critically.</p>
+			</div>
+		</div>
+		<div class="container">
+			<h1 class="display-4">The Ten Most Recent Post:</h1>
+			<hr>
+			<div class="row">
+			{% for article in recentArticles %}
+				<div class="col-md-5">
+					<h2>
+						<a class="panel-heading" href="{% url 'expose:article' article.id %}">{{ article.article_title }}</a>
+					</h2>
+					<p class="">{{article.article_date}}</p>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+		<hr>
+	{% else %}
+		<h4 class="display-4">No articles have been written yet!</h4>
+	{% endif %}
+</main>
+<footer class="container">
+	<p>© Anon News 2017</p>
+</footer>

@@ -8,4 +8,6 @@ urlpatterns = [ url(r'^$', views.HomeView.as_view(), name='HomeView'),
 	url(r'^archive/$' ,views.archive, name='archive'),
 	url(r'^archive/by/year/$' ,views.archive_year, name='archive_year'),
 	url(r'^archive/by/month/$', views.archive_month, name='archive_month'),
+	url(r'^author/article/$', views.author_article, name='author_article'),
+	url(r'^author/article/submit/$', views.submit_article, name='submit_article')
 ]
